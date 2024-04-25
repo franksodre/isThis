@@ -1,9 +1,9 @@
 const jwt = require('jsonwebToken')
-// const 'bcrypt' = require('bcryptjs')
 const nodeMailer = require('nodemailer')
 const env = require('dotenv')
 
 const generateToken = require('../utils/GenerateToken.js')
+const createCookie = require('../utils/createCookie.js')
 const { cookieOptions_token, cookieOptions_state }  = require('../utils/cookieOptions.js')
 
 const User = require('../db/models/registrer/User.js');
@@ -12,6 +12,7 @@ exports.login = async (request,response) => {
     function createCookie ({ name, value, options = {} }){
         return response.cookie(name, value, options)
     }
+
     const { email, password } = request.body;
 
     const user = await User.findOne({ email });
@@ -61,7 +62,6 @@ exports.login = async (request,response) => {
         .header('Authorization', accessToken)
 
         createCookie({ name: 'Authorization', value: accessToken, options: cookieOptions_token })
-        createCookie({ name: 'state',value: true,options: cookieOptions_state})
         .json({ User: UserSaved._id });
     } catch (e) {
         console.log(e);

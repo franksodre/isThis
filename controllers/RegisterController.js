@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const { hash, genSalt } = require('bcryptjs');
 
 const User = require('../db/models/registrer/User.js');
+const { cookieOptions_token, cookieOptions_state } = require('../utils/cookieOptions.js')
 
 const generateToken = ({ payload, time }) => {
     return jwt.sign({ payload }, process.env.SECRET_KEY_TOKEN, {
@@ -10,6 +11,10 @@ const generateToken = ({ payload, time }) => {
 }
 
 exports.register = async (request,response) => {
+    function createCookie ({ name, value, options = {} }){
+        return response.cookie(name, value, options)
+    }
+
     const { name,email,password } = request.body;
 
     const CheckUserExists = await User.findOne({email});
@@ -44,7 +49,7 @@ exports.register = async (request,response) => {
             maxAge: 1000 * 60,
 
         })
-        .status(201).json({ User: UserSaved._id });
+        .status(201).json({ User: UserSaved._id })
 
     } catch (e) {
         console.error(e);
