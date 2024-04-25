@@ -1,0 +1,46 @@
+/*  const checkPass = await bcrypt.compare(password,user.password)
+    if(!checkPass){
+        return response.status(400).json({ messageError: 'incorrect password' })
+    }
+    response.status(200).json({ success: 'user logged' })*/
+
+
+    Notas::
+     - usar sempre uma tratativa em parametros de funções caso eles não sejam passados
+
+
+     refreshTOken que deve verificar se demora 1 dia : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiNjYwZDVjNzAzZjVhYmJjMjcwODZjNThlIiwiaWF0IjoxNzEyMTUxOTIwLCJleHAiOjE3MTIyMzgzMjB9.k944PHE9x_DXiq2L-hAbsnDTiyw8CNbWYxr8vVHVxhk
+
+eu agora vwjo 2 problemas:
+1- sempre que é feito um login ou registro. é criado 2 tokens access token e refresh token mais o refresh token tem um maior tempo e se sempre que faço login crio um novo do qual deveria demorar não é um comportamento que queira.
+
+2- ao fazer o refresh token ter sempre de validar se existe um token de acesso para que o refresh token possa criar um novo access token.
+
+fazer todas as validaçôes entrarem em concordancia
+
+    const form = document.querySelector('form');
+    const btnRefresh = document.querySelector('.button_refreshToken');
+
+    async function RefreshRequest (){
+        try {
+            await fetch('/api/users/refreshToken', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
+    btnRefresh.addEventListener('click',async () => {
+        const response = await fetch('/api/users/products', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if(response.status === 401){
+            window.location = 'http://localhost:5000/api/users/products';
+            return RefreshRequest();
+        }
+
+    })
+
