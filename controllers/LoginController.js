@@ -4,11 +4,14 @@ const nodeMailer = require('nodemailer')
 const env = require('dotenv')
 
 const generateToken = require('../utils/GenerateToken.js')
-// const { TRANSPORTER, mailOptions } = require('./loginMailer/sendEmail.js')
+const { cookieOptions_token, cookieOptions_state }  = require('../utils/cookieOptions.js')
 
 const User = require('../db/models/registrer/User.js');
 
 exports.login = async (request,response) => {
+    function createCookie ({ name, value, options = {} }){
+        return response.cookie(name, value, options)
+    }
     const { email, password } = request.body;
 
     const user = await User.findOne({ email });
@@ -49,23 +52,16 @@ exports.login = async (request,response) => {
         return response.status(200).json({ message: `email sended to ${email}` })
     })
 
-    const cookieOptions = {
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60,
-        sameSite: 'strict'
-    }
+
 
     try {
         const UserSaved = await user.save();
         request.UserSaved = UserSaved;
-        response.cookie('refreshToken', refreshToken, cookieOptions)
-        // .header('Authorization', accessToken)
-        .cookie('Authorization', accessToken,{
-            httpOnly: true,
-            sameSite: 'strict',
-            maxAge: 1000 * 60,
+        response.cookie('refreshToken', refreshToken, cookieOptions_token)
+        .header('Authorization', accessToken)
 
-        })
+        createCookie({ name: 'Authorization', value: accessToken, options: cookieOptions_token })
+        createCookie({ name: 'state',value: true,options: cookieOptions_state})
         .json({ User: UserSaved._id });
     } catch (e) {
         console.log(e);

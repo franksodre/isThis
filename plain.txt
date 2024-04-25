@@ -17,3 +17,30 @@ eu agora vwjo 2 problemas:
 2- ao fazer o refresh token ter sempre de validar se existe um token de acesso para que o refresh token possa criar um novo access token.
 
 fazer todas as validaçôes entrarem em concordancia
+
+    const form = document.querySelector('form');
+    const btnRefresh = document.querySelector('.button_refreshToken');
+
+    async function RefreshRequest (){
+        try {
+            await fetch('/api/users/refreshToken', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            })
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
+    btnRefresh.addEventListener('click',async () => {
+        const response = await fetch('/api/users/products', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if(response.status === 401){
+            window.location = 'http://localhost:5000/api/users/products';
+            return RefreshRequest();
+        }
+
+    })
+

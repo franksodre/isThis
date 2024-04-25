@@ -1,7 +1,6 @@
 <form>
-    <!-- <label for="">name</label>
+    <label for="">name</label>
     <input type="text" name="name" required />
--->
     <label for="">email</label>
     <input type="email" name="email" required />
 <!-- <label for="">password</label>
@@ -10,33 +9,9 @@
 
     <button type="submit">submit</button>
 </form>
-    <button type="submit" class="button_refreshToken">refresh token</button>
+    <button type="submit" class="button_refreshToken">login</button>
 <script>
     const form = document.querySelector('form');
-    const btnRefresh = document.querySelector('.button_refreshToken');
-
-    async function RefreshRequest (){
-        try {
-            await fetch('/api/users/refreshToken', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' }
-            })
-        } catch(e) {
-            console.log(e);
-        }
-    }
-
-    btnRefresh.addEventListener('click',async () => {
-        const response = await fetch('/api/users/products', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        })
-        if(response.status === 401){
-            window.location = 'http://localhost:5000/api/users/products';
-            return RefreshRequest();
-        }
-
-    })
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -52,9 +27,10 @@
             })
             const data = await response.json()
             console.log(data)
-            // if(response.ok){
-            //     window.location = 'https://www.youtube.com/'
-            // }
+            if(response.status === 401){
+                console.log("developer")
+                window.location = 'localhost:5000/api/users/login'
+            }
         } catch (e) {
             console.log(e)
         }
