@@ -2,19 +2,11 @@ const jwt = require('jsonwebtoken');
 const { hash, genSalt } = require('bcryptjs');
 
 const User = require('../db/models/registrer/User.js');
+const generateToken = require('../utils/GenerateToken.js');
+const createCookie = require('../utils/createCookie.js');
 const { cookieOptions_token, cookieOptions_state } = require('../utils/cookieOptions.js')
 
-const generateToken = ({ payload, time }) => {
-    return jwt.sign({ payload }, process.env.SECRET_KEY_TOKEN, {
-        expiresIn: time,
-    })
-}
-
 exports.register = async (request,response) => {
-    function createCookie ({ name, value, options = {} }){
-        return response.cookie(name, value, options)
-    }
-
     const { name,email,password } = request.body;
 
     const CheckUserExists = await User.findOne({email});
@@ -41,16 +33,13 @@ exports.register = async (request,response) => {
         const refreshToken = generateToken({ payload: user._id, time: '1d'});
         const UserSaved = await user.save();
 
-        response.cookie('refreshToken', refreshToken, cookieOptions)
+        response.cookie('refreshToken', refreshToken, cookieOptions_token)
         // .header('Authorization', accessToken)
-        .cookie('Authorization', accessToken,{
-            httpOnly: true,
-            sameSite: 'strict',
-            maxAge: 1000 * 60,
-
-        })
+        createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token })
         .status(201).json({ User: UserSaved._id })
 
+
+        // deve ser trabalhada
     } catch (e) {
         console.error(e);
         return response.status(400).json({ error: 'Failed to register user' });
@@ -58,6 +47,12 @@ exports.register = async (request,response) => {
 }
 
 exports.GET_register = async (request,response) => {
+    const { refreshToken: refresh } = request.cookies;
+
+    if(refresh){
+        return response.redirect('home')
+    }
+
     response.render('register')
 }
 

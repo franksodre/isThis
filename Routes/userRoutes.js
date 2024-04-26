@@ -9,8 +9,6 @@ const { errorHandler } = require('../errors/errorHandler.js');
 const { home } = require('../controllers/HomeController.js');
 const { refreshToken } = require('../middlewares/refreshToken.js');
 const { authenticate } = require('../middlewares/authenticate.js');
-const { protected } = require('../middlewares/protected.js')
-
 
 // registro
 Router.post('/register', RegisterMiddleware.register, RegisterController.register);
@@ -20,7 +18,7 @@ Router.get('/register',  RegisterController.GET_register);
 Router.post('/login', LoginMiddleware, LoginController.login);
 Router.get('/login', LoginController.GET_login);
 
-Router.get('/home', protected, home)
+Router.get('/home', home)
 
 Router.post('/refreshToken', refreshToken);
 

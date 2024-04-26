@@ -9,15 +9,11 @@ const { cookieOptions_token, cookieOptions_state }  = require('../utils/cookieOp
 const User = require('../db/models/registrer/User.js');
 
 exports.login = async (request,response) => {
-    function createCookie ({ name, value, options = {} }){
-        return response.cookie(name, value, options)
-    }
-
     const { email, password } = request.body;
 
     const user = await User.findOne({ email });
     if(!user){
-        return response.status(400).json({ messageError: 'user doesn\'t exists' });
+        return response.status(400).json({ messageError: 'user doesn\'t exists' }); // alterar a msg
     }
 
     const accessToken = generateToken({ payload: email, time: '1m' });
@@ -53,15 +49,13 @@ exports.login = async (request,response) => {
         return response.status(200).json({ message: `email sended to ${email}` })
     })
 
-
-
     try {
         const UserSaved = await user.save();
         request.UserSaved = UserSaved;
         response.cookie('refreshToken', refreshToken, cookieOptions_token)
         .header('Authorization', accessToken)
 
-        createCookie({ name: 'Authorization', value: accessToken, options: cookieOptions_token })
+        createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token })
         .json({ User: UserSaved._id });
     } catch (e) {
         console.log(e);
@@ -70,6 +64,12 @@ exports.login = async (request,response) => {
 }
 
 exports.GET_login = async (request,response) => {
+    const { refreshToken: refresh } = request.cookies;
+
+    if(refresh){
+        return response.redirect('home')
+    }
+
     response.render('login')
 }
 
