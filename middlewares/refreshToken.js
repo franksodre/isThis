@@ -1,26 +1,23 @@
-const jwt = require('jsonwebtoken');
-const generateToken = require('../utils/GenerateToken');
+const { verify } = require('jsonwebtoken');
 
-const cookieOptions = {
-	httpOnly: true,
-	sameSite: 'strict',
-	maxAge: 1000 * 60,
-}
+const { generateToken, generateRefreshToken } = require('../utils/GenerateToken.js');
+const createCookie = require('../utils/createCookie.js');
+const { cookieOptions_token, cookieOptions_state }  = require('../utils/cookieOptions.js')
 
-exports.refreshToken = async (request, response,next) => {
+exports.refreshToken = async (request, response) => {
+	// a verificação aqui é desnecessaria pois há um middleware de authenticação?
 	const { refreshToken: token } = request.cookies;
 	if(!token){
-		return response.status(404).json({ msg: `any token founded?` });
+		return response.status(401).json({msg: "invalid tokens"})
 	}
-
 	try{
-		const decoded = jwt.verify(token, process.env.SECRET_KEY_TOKEN);
-		const accessToken = generateToken({ payload: '007', time: '2m' }); // the payload in this moment is just for example.
-		const refreshToken = generateToken({ payload: '007', time: '1d' }); // the payload in this moment is just for example.
+		const accessToken = generateToken({ payload: '007', time: '1m' }); // the payload in this moment is just for example.
+		const refreshToken = generateRefreshToken({ payload: '007', time: '1d' }); // the payload in this moment is just for example.
 		// response.header('Authorization', accessToken);
-		response.cookie('Authorization', accessToken, cookieOptions);
-		response.cookie('refreshToken', accessToken, cookieOptions);
-		return next();
+		createCookie({ response: response, name: 'refreshToken', value: refreshToken, options: cookieOptions_token });
+		createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token });
+		response.status(200).json({msg: "new token created"})
+		// message  json
 	}catch(error){
 		return response.status(401).json({ msg: 'invalid token || refresh token' })
 	}

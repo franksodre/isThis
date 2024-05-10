@@ -1,9 +1,11 @@
 const jwt = require('jsonwebToken')
 const nodeMailer = require('nodemailer')
+const { compare } = require('bcryptjs');
 const env = require('dotenv')
 
-const generateToken = require('../utils/GenerateToken.js')
-const createCookie = require('../utils/createCookie.js')
+const { generateToken, generateRefreshToken } = require('../utils/GenerateToken.js');
+const createCookie = require('../utils/createCookie.js');
+const { ServerValidationError } = require('../errors/index.js');
 const { cookieOptions_token, cookieOptions_state }  = require('../utils/cookieOptions.js')
 
 const User = require('../db/models/registrer/User.js');
@@ -13,50 +15,38 @@ exports.login = async (request,response) => {
 
     const user = await User.findOne({ email });
     if(!user){
-        return response.status(400).json({ messageError: 'user doesn\'t exists' }); // alterar a msg
+        return response.status(404).json({ msg: "email or password incorrect" }); // alterar a msg
     }
 
-    const accessToken = generateToken({ payload: email, time: '1m' });
-    const refreshToken = generateToken({ payload: user._id, time: '1d'});
-
-
-    TRANSPORTER = nodeMailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        auth: {
-            user: 'dangelo.schinner0@ethereal.email', // process.env.Magic_Link_Email
-            pass: '7Mt9HEnzj7csmdRg5F', // process.env.Magic_Link_Pass
+    try{
+        const comparePassword = await compare(password, user.password); // os metodos de bcryptjs não retornam throws.
+        if(!email || !password){
+            return response.status(400).json({msg: "password or email incorrect"})
+        }  // tudo isso poderia estar dentro do try.
+        if (!comparePassword) {
+            throw new ServerValidationError({
+                message: "email or password are incorrect",
+                statusCode: 403
+            })
         }
-    })
-
-    const magicLink = `http://localhost:5000/api/users/auth?token=${accessToken}`;
-    mailOptions = {
-        from: process.env.Magic_Link_Email,
-        to: email,
-        subject: 'auth with magic links',
-        html: `
-        click here to authenticaded
-            <a href="${magicLink}">
-            <strong>login</strong>
-        </a>`,
+    }catch(e){
+        if(e instanceof ServerValidationError){
+            return response.status(e.statusCode).json({msg: e.message})
+        }
     }
 
-
-    TRANSPORTER.sendMail(mailOptions, (error, info) => {
-        if(error){
-            return console.log(error);
-        }
-        return response.status(200).json({ message: `email sended to ${email}` })
-    })
+    const accessToken = generateToken({ payload: email, time: '1m', });
+    const refreshToken = generateRefreshToken({ payload: user._id, time: '1d' });
 
     try {
+        response.cookie('refreshToken', refreshToken, cookieOptions_token);
+        response.header('Authorization', accessToken);
+
         const UserSaved = await user.save();
         request.UserSaved = UserSaved;
-        response.cookie('refreshToken', refreshToken, cookieOptions_token)
-        .header('Authorization', accessToken)
 
-        createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token })
-        .json({ User: UserSaved._id });
+        createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token });
+        response.status(200).json({ User: UserSaved._id })
     } catch (e) {
         console.log(e);
         response.status(401).json({ msg: 'token invalido' });
@@ -64,12 +54,6 @@ exports.login = async (request,response) => {
 }
 
 exports.GET_login = async (request,response) => {
-    const { refreshToken: refresh } = request.cookies;
-
-    if(refresh){
-        return response.redirect('home')
-    }
-
     response.render('login')
 }
 

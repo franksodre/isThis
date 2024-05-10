@@ -1,38 +1,88 @@
-<form>
-    <label for="">name</label>
-    <input type="text" name="name" required />
-    <label for="">email</label>
-    <input type="email" name="email" required />
-<!-- <label for="">password</label>
-    <input type="text" name="password" required />
--->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login with tailwind</title>
+    <link rel="stylesheet" type="text/css" href="/css/output.css">
+</head>
+<body class="relative">
+  <div id="alerts" class="">
+    <div id="alerts__message"></div>
+  </div>
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-10 w-auto" src="/assets/inside_pc_logo_mark.png" alt="Your Company">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+      </div>
 
-    <button type="submit">submit</button>
-</form>
-    <button type="submit" class="button_refreshToken">login</button>
-<script>
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6">
+          <div>
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+            <div class="mt-2">
+              <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+              <div class="text-sm">
+                <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+              </div>
+            </div>
+            <div class="mt-2">
+              <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+          Not a member?
+          <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
+        </p>
+      </div>
+    </div>
+
+
+<script type="module">
     const form = document.querySelector('form');
+    const btn = document.querySelector("#button_refreshToken");
+    const SERVER_MSG = document.querySelector("#alerts__message");
+
+    function updateDataServerMSG(data){
+      const valueData_msg = "msg" in data ? data.msg : data.error;
+      SERVER_MSG.innerHTML = `${valueData_msg}`
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const email = form.email.value;
-        // const password = form.password.value;
-
+        const password = form.password.value;
         try {
-            const response = await fetch('/api/users/login', {
+            const url = "/home";
+            const response = await fetch('/customer/account/login', {
                 method: 'POST',
-                body: JSON.stringify({ email/*,password*/ }),
+                body: JSON.stringify({ email, password }),
                 headers: { 'Content-Type': 'application/json' }
             })
-            const data = await response.json()
-            console.log(data)
-            if(response.status === 401){
-                console.log("developer")
-                window.location = 'localhost:5000/api/users/login'
+            const data = await response.json();
+            const valueData_msg = "msg" in data ? data.msg : data.error;
+            // console.log(data);
+            updateDataServerMSG(data)
+            if(response.ok){ // ok
+                window.location = url;
             }
         } catch (e) {
             console.log(e)
         }
 })
 </script>
+</body>
+</html>

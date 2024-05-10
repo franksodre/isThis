@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/css/output.css">
+</head>
+<body class="text-white">
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/t6hMANbBYpo
+-->
+
+<div class="flex flex-col min-h-screen">
+  <header class="bg-white shadow-sm dark:bg-gray-900">
+    <div class="container mx-auto px-4 py-4 md:py-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <img
+            src="/placeholder.svg"
+            alt="Logo"
+            width="48"
+            height="48"
+            class="h-8 w-8 md:h-10 md:w-10"
+            style="aspect-ratio: 48 / 48; object-fit: cover;"
+          />
+          <h1 class="ml-3 text-lg font-bold text-gray-900 dark:text-white md:text-xl">My App</h1>
+        </div>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="#">
+            Home
+          </a>
+          <a class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="#">
+            Features
+          </a>
+          <a class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="#">
+            Pricing
+          </a>
+          <a class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="#">
+            Contact
+          </a>
+        </nav>
+        <div class="flex items-center space-x-4">
+          <button class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 hidden md:inline-flex">
+            Sign Up
+          </button>
+          <button class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 hidden md:inline-flex">
+            Sign In
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+            >
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="flex-1">
+    <section class="bg-gray-100 dark:bg-gray-800 py-12 md:py-20">
+      <div class="container mx-auto px-4">
+        <div aria-roledescription="carousel" class="relative mb-8" role="region">
+          <div class="overflow-hidden">
+            <div class="flex -ml-4" style="transform: translate3d(0px, 0px, 0px);">
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                  <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 md:text-4xl">
+                      Welcome to My App
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 md:text-lg">
+                      Discover the power of our app and transform the way you work.
+                    </p>
+                    <div class="flex space-x-4">
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                        Get Started
+                      </button>
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                        Learn More
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <img
+                      src="/placeholder.svg"
+                      alt="Hero Image"
+                      width="600"
+                      height="400"
+                      class="rounded-lg shadow-lg"
+                      style="aspect-ratio: 600 / 400; object-fit: cover;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                  <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 md:text-4xl">
+                      Discover Our Features
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 md:text-lg">
+                      Explore the powerful features that make our app stand out.
+                    </p>
+                    <div class="flex space-x-4">
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                        Learn More
+                      </button>
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                        Try It Now
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <img
+                      src="/placeholder.svg"
+                      alt="Feature Image"
+                      width="600"
+                      height="400"
+                      class="rounded-lg shadow-lg"
+                      style="aspect-ratio: 600 / 400; object-fit: cover;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                  <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 md:text-4xl">
+                      Affordable Pricing
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8 md:text-lg">
+                      Find the perfect plan to fit your budget and needs.
+                    </p>
+                    <div class="flex space-x-4">
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                        View Pricing
+                      </button>
+                      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                        Contact Sales
+                      </button>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <img
+                      src="/placeholder.svg"
+                      alt="Pricing Image"
+                      width="600"
+                      height="400"
+                      class="rounded-lg shadow-lg"
+                      style="aspect-ratio: 600 / 400; object-fit: cover;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2"
+            disabled=""
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="m12 19-7-7 7-7"></path>
+              <path d="M19 12H5"></path>
+            </svg>
+            <span class="sr-only">Previous slide</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+            <span class="sr-only">Next slide</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 md:py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 md:text-4xl">Features</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <div class="mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-10 w-10 text-[#ff6b6b]"
+              >
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Powerful Features</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Our app comes packed with powerful features to help you achieve your goals.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <div class="mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-10 w-10 text-[#ff6b6b]"
+              >
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <circle cx="12" cy="12" r="4"></circle>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Fast and Efficient</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Our app is designed to be lightning-fast and highly efficient, so you can get more done in less time.
+            </p>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <div class="mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-10 w-10 text-[#ff6b6b]"
+              >
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Secure and Reliable</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Your data is safe with us. We take security and reliability seriously to protect your information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-gray-100 dark:bg-gray-800 py-12 md:py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 md:text-4xl">Pricing</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Basic</h3>
+            <p class="text-4xl font-bold text-[#ff6b6b] mb-4">$9</p>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">per month</p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 1</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 2</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 3</span>
+              </li>
+            </ul>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+              Get Started
+            </button>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Pro</h3>
+            <p class="text-4xl font-bold text-[#ff6b6b] mb-4">$19</p>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">per month</p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 1</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 2</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 3</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 4</span>
+              </li>
+            </ul>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+              Get Started
+            </button>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Enterprise</h3>
+            <p class="text-4xl font-bold text-[#ff6b6b] mb-4">$49</p>
+            <p class="text-gray-600 dark:text-gray-400 mb-8">per month</p>
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 1</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 2</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 3</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 4</span>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-5 w-5 text-[#ff6b6b] mr-2"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Feature 5</span>
+              </li>
+            </ul>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-12 md:py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 md:text-4xl">Contact Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6 dark:bg-gray-900">
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Name
+                </label>
+                <input
+                  class="flex h-10 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-md border border-gray-300 bg-gray-100 p-2 text-gray-700 focus:border-[#ff6b6b] focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:focus:border-[#ff6b6b]"
+                  id="name"
+                  placeholder="Enter your name"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-400">
+                  Email
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

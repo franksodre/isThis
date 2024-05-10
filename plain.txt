@@ -44,3 +44,932 @@ fazer todas as validaçôes entrarem em concordancia
 
     })
 
+
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password }),
+            headers: { 'content-Type': 'application/json' }
+        })
+    } catch (e) {
+        console.log(e)
+    }
+})
+
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/aopoEPkWsSs
+-->
+
+<section class="w-full max-w-5xl mx-auto py-12 md:py-20">
+  <div class="flex flex-col items-center gap-6">
+    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Featured Products</h2>
+    <div class="relative w-full">
+      <div aria-roledescription="carousel" class="relative w-full" role="region">
+        <div class="overflow-hidden">
+          <div class="flex -ml-4">
+            <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img
+                  src="/placeholder.svg"
+                  alt="Product 1"
+                  width="600"
+                  height="400"
+                  class="aspect-video object-cover rounded-lg"
+                />
+                <div class="flex flex-col justify-center gap-4">
+                  <h3 class="text-2xl font-semibold">Acme Wireless Headphones</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    Experience the ultimate in sound quality with our premium wireless headphones.
+                  </p>
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold">$99</span>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img
+                  src="/placeholder.svg"
+                  alt="Product 2"
+                  width="600"
+                  height="400"
+                  class="aspect-video object-cover rounded-lg"
+                />
+                <div class="flex flex-col justify-center gap-4">
+                  <h3 class="text-2xl font-semibold">Acme Smart Watch</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    Stay connected and on top of your fitness goals with our advanced smart watch.
+                  </p>
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold">$149</span>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img
+                  src="/placeholder.svg"
+                  alt="Product 3"
+                  width="600"
+                  height="400"
+                  class="aspect-video object-cover rounded-lg"
+                />
+                <div class="flex flex-col justify-center gap-4">
+                  <h3 class="text-2xl font-semibold">Acme Fitness Tracker</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    Stay motivated and on top of your fitness goals with our advanced fitness tracker.
+                  </p>
+                  <div class="flex items-center gap-2">
+                    <span class="text-2xl font-bold">$79</span>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-full absolute left-4 top-1/2 -translate-y-1/2 z-10"
+          disabled=""
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="m12 19-7-7 7-7"></path>
+            <path d="M19 12H5"></path>
+          </svg>
+          <span class="sr-only">Previous slide</span>
+        </button>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 w-8 rounded-full absolute right-4 top-1/2 -translate-y-1/2 z-10"
+          disabled=""
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+          <span class="sr-only">Next slide</span>
+        </button>
+      </div>
+      <div class="mt-6 flex justify-center gap-2"></div>
+    </div>
+  </div>
+</section>
+
+// slider products for buy
+
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/J2QsPh1zaD9
+-->
+
+<section class="w-full py-12 md:py-24 lg:py-32 dark:bg-gray-950 dark:text-gray-50">
+  <div class="container px-4 md:px-6">
+    <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+      <div>
+        <div aria-roledescription="carousel" class="relative rounded-lg" role="region">
+          <div class="overflow-hidden">
+            <div class="flex -ml-4" style="transform: translate3d(0px, 0px, 0px);">
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <img
+                  src="/placeholder.svg"
+                  width="800"
+                  height="600"
+                  alt="Product Image 1"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <img
+                  src="/placeholder.svg"
+                  width="800"
+                  height="600"
+                  alt="Product Image 2"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <div aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full pl-4" role="group">
+                <img
+                  src="/placeholder.svg"
+                  width="800"
+                  height="600"
+                  alt="Product Image 3"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2"
+            disabled=""
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="m12 19-7-7 7-7"></path>
+              <path d="M19 12H5"></path>
+            </svg>
+            <span class="sr-only">Previous slide</span>
+          </button>
+          <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+            <span class="sr-only">Next slide</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex flex-col justify-center space-y-6">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Acme Wireless Headphones</h1>
+          <p class="mt-4 text-gray-400 md:text-xl">
+            Experience the ultimate in sound quality with our Acme Wireless Headphones. Crafted with premium
+            materials and advanced technology, these headphones deliver an immersive listening experience that will
+            transport you to a new level of audio bliss.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h2 class="text-2xl font-bold">$99.99</h2>
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 fill-primary"
+            >
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 fill-primary"
+            >
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 fill-primary"
+            >
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 fill-gray-400 stroke-gray-400"
+            >
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 fill-gray-400 stroke-gray-400"
+            >
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span class="text-sm text-gray-400">(4.3)</span>
+          </div>
+          <div class="flex flex-col gap-2 sm:flex-row">
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full sm:w-auto">
+              Add to Cart
+            </button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 w-full sm:w-auto">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+// e-commerce dashboard with a sidebar
+
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/eE5EFHCk1WK
+-->
+
+<div class="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
+  <div class="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+    <div class="flex h-full max-h-screen flex-col gap-2">
+      <div class="flex h-[60px] items-center border-b px-6">
+        <a class="flex items-center gap-2 font-semibold" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+            <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+            <path d="M12 3v6"></path>
+          </svg>
+          <span class="">Acme Inc</span>
+        </a>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground ml-auto h-8 w-8">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+          </svg>
+          <span class="sr-only">Toggle notifications</span>
+        </button>
+      </div>
+      <div class="flex-1 overflow-auto py-2">
+        <nav class="grid items-start px-4 text-sm font-medium">
+          <a
+            class="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Dashboard
+          </a>
+          <a
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="m7.5 4.27 9 5.15"></path>
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+            Products
+          </a>
+          <a
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            Orders
+            <div class="whitespace-nowrap border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+              12
+            </div>
+          </a>
+          <a
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Customers
+          </a>
+          <a
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            href="#"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+            >
+              <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Settings
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <header class="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
+      <a class="lg:hidden" href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-6 w-6"
+        >
+          <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+          <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
+          <path d="M12 3v6"></path>
+        </svg>
+        <span class="sr-only">Home</span>
+      </a>
+      <div class="flex-1">
+        <h1 class="font-semibold text-lg">Recent Orders</h1>
+      </div>
+      <div class="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+        <form class="ml-auto flex-1 sm:flex-initial">
+          <div class="relative">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
+            <input
+              class="flex h-10 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] bg-white"
+              type="search"
+              placeholder="Search orders..."
+            />
+          </div>
+        </form>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full"
+          type="button"
+          id="radix-:R5mlafnnja:"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          data-state="closed"
+        >
+          <img
+            src="/placeholder.svg"
+            width="32"
+            height="32"
+            class="rounded-full"
+            alt="Avatar"
+            style="aspect-ratio:32/32;object-fit:cover"
+          />
+          <span class="sr-only">Toggle user menu</span>
+        </button>
+      </div>
+    </header>
+    <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+      <div class="border shadow-sm rounded-lg p-2">
+        <div class="relative w-full overflow-auto">
+          <table class="w-full caption-bottom text-sm">
+            <thead class="[&amp;_tr]:border-b">
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[100px]">
+                  Order
+                </th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 min-w-[150px]">
+                  Customer
+                </th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Channel
+                </th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Date
+                </th>
+                <th class="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  Total
+                </th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">
+                  Status
+                </th>
+                <th class="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody class="[&amp;_tr:last-child]:border-0">
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3210</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Olivia Martin</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Online Store
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  February 20, 2022
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$42.25</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Shipped</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1sdqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3209</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Ava Johnson</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Shop</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  January 5, 2022
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$74.99</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Paid</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1slqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3204</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Michael Johnson</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Shop</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  August 3, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$64.75</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Unfulfilled</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1stqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3203</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Lisa Anderson</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Online Store
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  July 15, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$34.50</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Shipped</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1t5qlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3202</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Samantha Green</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Shop</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  June 5, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$89.99</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Paid</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1tdqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3201</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Adam Barlow</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Online Store
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  May 20, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$24.99</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Unfulfilled</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1tlqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3207</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Sophia Anderson</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">Shop</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  November 2, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$99.99</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Paid</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1ttqlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">#3206</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Daniel Smith</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  Online Store
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+                  October 7, 2021
+                </td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">$67.50</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden sm:table-cell">Shipped</td>
+                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+                    type="button"
+                    id="radix-:R1u5qlafnnja:"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    data-state="closed"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <polyline points="18 8 22 12 18 16"></polyline>
+                      <polyline points="6 8 2 12 6 16"></polyline>
+                      <line x1="2" x2="22" y1="12" y2="12"></line>
+                    </svg>
+                    <span class="sr-only">Actions</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+// svg logo mark
+<span class="mx-auto h-10 w-auto">
+    <svg xmlns="http://www.w3.org/2000/svg" width="144" height="53" viewBox="0 0 144 53" fill="none">
+    <path d="M7.39773 10.4545V41H3.69886V10.4545H7.39773ZM17.8567 27.2188V41H14.3368V18.0909H17.7374V21.6705H18.0357C18.5726 20.5071 19.388 19.5724 20.4817 18.8665C21.5755 18.1506 22.9874 17.7926 24.7175 17.7926C26.2686 17.7926 27.6259 18.1108 28.7892 18.7472C29.9526 19.3736 30.8574 20.3281 31.5037 21.6108C32.15 22.8835 32.4732 24.4943 32.4732 26.4432V41H28.9533V26.6818C28.9533 24.8821 28.486 23.4801 27.5513 22.4759C26.6167 21.4616 25.334 20.9545 23.7033 20.9545C22.5797 20.9545 21.5755 21.1982 20.6905 21.6854C19.8155 22.1726 19.1245 22.8835 18.6174 23.8182C18.1103 24.7528 17.8567 25.8864 17.8567 27.2188ZM55.1325 23.2216L51.9705 24.1165C51.7717 23.5895 51.4783 23.0774 51.0906 22.5803C50.7127 22.0732 50.1957 21.6555 49.5394 21.3274C48.8832 20.9993 48.043 20.8352 47.0188 20.8352C45.6168 20.8352 44.4485 21.1584 43.5138 21.8047C42.5891 22.4411 42.1268 23.2514 42.1268 24.2358C42.1268 25.1108 42.445 25.8018 43.0813 26.3089C43.7177 26.8161 44.712 27.2386 46.0643 27.5767L49.4648 28.4119C51.5131 28.9091 53.0394 29.6697 54.0437 30.6939C55.0479 31.7081 55.5501 33.0156 55.5501 34.6165C55.5501 35.929 55.1722 37.1023 54.4165 38.1364C53.6708 39.1705 52.6268 39.9858 51.2844 40.5824C49.9421 41.179 48.381 41.4773 46.6012 41.4773C44.2646 41.4773 42.3306 40.9702 40.7994 39.956C39.2681 38.9418 38.2987 37.4602 37.891 35.5114L41.2319 34.6761C41.5501 35.9091 42.1516 36.8338 43.0366 37.4503C43.9315 38.0668 45.0998 38.375 46.5415 38.375C48.1822 38.375 49.4847 38.027 50.4492 37.331C51.4237 36.625 51.9109 35.7798 51.9109 34.7955C51.9109 34 51.6325 33.3338 51.0756 32.7969C50.5188 32.25 49.6637 31.8423 48.5103 31.5739L44.6921 30.679C42.5941 30.1818 41.0529 29.4112 40.0685 28.3672C39.0941 27.3132 38.6069 25.9957 38.6069 24.4148C38.6069 23.1222 38.9698 21.9787 39.6957 20.9844C40.4315 19.9901 41.4308 19.2095 42.6935 18.6428C43.9663 18.076 45.408 17.7926 47.0188 17.7926C49.2859 17.7926 51.0657 18.2898 52.3583 19.2841C53.6609 20.2784 54.5856 21.5909 55.1325 23.2216ZM60.8485 41V18.0909H64.3684V41H60.8485ZM62.6383 14.2727C61.9522 14.2727 61.3606 14.0391 60.8635 13.5717C60.3762 13.1044 60.1326 12.5426 60.1326 11.8864C60.1326 11.2301 60.3762 10.6683 60.8635 10.201C61.3606 9.73366 61.9522 9.5 62.6383 9.5C63.3244 9.5 63.911 9.73366 64.3983 10.201C64.8954 10.6683 65.144 11.2301 65.144 11.8864C65.144 12.5426 64.8954 13.1044 64.3983 13.5717C63.911 14.0391 63.3244 14.2727 62.6383 14.2727ZM79.4659 41.4773C77.5568 41.4773 75.8714 40.995 74.4098 40.0305C72.9482 39.0561 71.8047 37.6839 70.9794 35.9141C70.1541 34.1342 69.7415 32.0312 69.7415 29.6051C69.7415 27.1989 70.1541 25.1108 70.9794 23.3409C71.8047 21.571 72.9531 20.2038 74.4247 19.2393C75.8963 18.2749 77.5966 17.7926 79.5256 17.7926C81.017 17.7926 82.1953 18.0412 83.0604 18.5384C83.9354 19.0256 84.6016 19.5824 85.0589 20.2088C85.5263 20.8253 85.8892 21.3324 86.1477 21.7301H86.446V10.4545H89.9659V41H86.5653V37.4801H86.1477C85.8892 37.8977 85.5213 38.4247 85.044 39.0611C84.5668 39.6875 83.8857 40.2493 83.0007 40.7464C82.1158 41.2337 80.9375 41.4773 79.4659 41.4773ZM79.9432 38.3153C81.3551 38.3153 82.5483 37.9474 83.5227 37.2116C84.4972 36.4659 85.2379 35.4368 85.745 34.1243C86.2521 32.8018 86.5057 31.2756 86.5057 29.5455C86.5057 27.8352 86.2571 26.3388 85.7599 25.0561C85.2628 23.7635 84.527 22.7592 83.5526 22.0433C82.5781 21.3175 81.375 20.9545 79.9432 20.9545C78.4517 20.9545 77.2088 21.3374 76.2145 22.103C75.2301 22.8587 74.4893 23.8878 73.9922 25.1903C73.505 26.483 73.2614 27.9347 73.2614 29.5455C73.2614 31.1761 73.5099 32.6577 74.0071 33.9901C74.5142 35.3125 75.2599 36.3665 76.2443 37.152C77.2386 37.9276 78.4716 38.3153 79.9432 38.3153Z" fill="black"/>
+    <path d="M114.074 43.8636V33.3636H115.207V34.5767H115.347C115.433 34.4441 115.552 34.2751 115.705 34.0696C115.86 33.8608 116.082 33.6752 116.371 33.5128C116.662 33.3471 117.057 33.2642 117.554 33.2642C118.197 33.2642 118.764 33.425 119.254 33.7464C119.745 34.0679 120.128 34.5237 120.403 35.1136C120.678 35.7036 120.815 36.3996 120.815 37.2017C120.815 38.0104 120.678 38.7114 120.403 39.3047C120.128 39.8946 119.746 40.352 119.259 40.6768C118.772 40.9983 118.21 41.1591 117.574 41.1591C117.083 41.1591 116.691 41.0779 116.396 40.9155C116.101 40.7498 115.874 40.5625 115.714 40.3537C115.555 40.1416 115.433 39.9659 115.347 39.8267H115.247V43.8636H114.074ZM115.227 37.1818C115.227 37.7585 115.312 38.2673 115.481 38.7081C115.65 39.1456 115.897 39.4886 116.222 39.7372C116.546 39.9825 116.944 40.1051 117.415 40.1051C117.905 40.1051 118.315 39.9759 118.643 39.7173C118.974 39.4555 119.223 39.1042 119.388 38.6634C119.558 38.2192 119.642 37.7254 119.642 37.1818C119.642 36.6449 119.559 36.161 119.393 35.7301C119.231 35.2959 118.984 34.9529 118.653 34.701C118.325 34.4458 117.912 34.3182 117.415 34.3182C116.938 34.3182 116.536 34.4392 116.212 34.6811C115.887 34.9197 115.642 35.2545 115.476 35.6854C115.31 36.1129 115.227 36.6117 115.227 37.1818ZM125.707 41.1591C124.991 41.1591 124.375 40.9901 123.858 40.652C123.341 40.3139 122.943 39.8482 122.665 39.255C122.386 38.6617 122.247 37.9839 122.247 37.2216C122.247 36.446 122.39 35.7616 122.675 35.1683C122.963 34.5717 123.364 34.1061 123.878 33.7713C124.395 33.4332 124.998 33.2642 125.688 33.2642C126.224 33.2642 126.708 33.3636 127.139 33.5625C127.57 33.7614 127.923 34.0398 128.198 34.3977C128.473 34.7557 128.644 35.1733 128.71 35.6506H127.537C127.447 35.3026 127.249 34.9943 126.94 34.7259C126.635 34.4541 126.224 34.3182 125.707 34.3182C125.25 34.3182 124.849 34.4375 124.504 34.6761C124.163 34.9115 123.896 35.2446 123.704 35.6754C123.515 36.103 123.42 36.6051 123.42 37.1818C123.42 37.7718 123.513 38.2855 123.699 38.723C123.888 39.1605 124.153 39.5002 124.494 39.7422C124.839 39.9841 125.243 40.1051 125.707 40.1051C126.012 40.1051 126.289 40.0521 126.538 39.946C126.786 39.84 126.997 39.6875 127.169 39.4886C127.341 39.2898 127.464 39.0511 127.537 38.7727H128.71C128.644 39.2235 128.48 39.6295 128.218 39.9908C127.96 40.3487 127.616 40.6338 127.189 40.8459C126.765 41.0547 126.271 41.1591 125.707 41.1591Z" fill="black"/>
+    <path d="M110 16.6345C105.149 11.6964 102.979 9.48731 102.5 9L95 16.6345L106.968 28.8173L95 41H110V33.203" stroke="black" stroke-width="3"/>
+    </svg>
+</span>

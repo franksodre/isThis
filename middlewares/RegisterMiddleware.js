@@ -13,10 +13,14 @@ exports.register = async (request, response, next) => {
     return response.status(400).json({ error:
       error.details[0]?.message
     });
+
 /*    throw new ValidateError({
       message: error.details[0]?.message,
       statusCode: 400,
-    });*/
+    });
+*/
   }
   next();
 };
+
+// module.exports = validationError;

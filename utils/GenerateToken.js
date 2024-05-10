@@ -5,5 +5,13 @@ function generateToken ({ payload, time }){
         expiresIn: time,
     })
 }
+function generateRefreshToken ({ payload, time }){
+    return jwt.sign({ payload }, process.env.SECRET_KEY_RTOKEN, {
+        expiresIn: time,
+    })
+}
 
-module.exports = generateToken;
+module.exports = {
+    generateToken,
+    generateRefreshToken
+};
