@@ -54,7 +54,14 @@ exports.login = async (request,response) => {
 }
 
 exports.GET_login = async (request,response) => {
-    response.render('login')
+    const { email } = request.body;
+
+    const user = User.findOne({ email });
+
+    const locals = {
+        title: "InsidePC | Login in your account"
+    }
+    response.render('login', { locals }); // validation error login
 }
 
 /*        response.cookie('accessToken', accessToken,{

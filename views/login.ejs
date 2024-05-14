@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login with tailwind</title>
-    <link rel="stylesheet" type="text/css" href="/css/output.css">
-</head>
 <body class="relative">
-  <div id="alerts" class="">
-    <div id="alerts__message"></div>
+  <div id="notification" class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-neutral-800 dark:border-neutral-700 mt-2 ml-4 fixed left-0 top-0 transform -translate-x-full transition-transform duration-500 ease-in-out hidden" role="alert">
+      <div class="flex p-4">
+          <div class="flex-shrink-0">
+              <svg class="flex-shrink-0 size-4 text-red-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+              </svg>
+          </div>
+          <div class="ms-3">
+              <p class="text-sm text-gray-700 dark:text-neutral-400" id="alerts__message">
+                  <!-- dynamic -->
+              </p>
+          </div>
+      </div>
   </div>
-    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img class="mx-auto h-10 w-auto" src="/assets/inside_pc_logo_mark.png" alt="Your Company">
         <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
@@ -60,13 +63,39 @@
       SERVER_MSG.innerHTML = `${valueData_msg}`
     }
 
+    const showNotificationCallback = (callback) => {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hidden');
+        notification.classList.remove('-translate-x-full');
+        notification.classList.add('translate-x-0');
+        if (typeof callback === 'function') {
+            callback();
+        }
+
+        setTimeout(() => {
+          hideNotification()
+        }, 3000)
+    };
+
+
+    const hideNotification = () => {
+        const notification = document.getElementById('notification');
+        notification.classList.add('-translate-x-full');
+        notification.classList.remove('translate-x-0');
+        // Esperar a animação terminar antes de ocultar completamente
+        setTimeout(() => {
+            notification.classList.add('hidden');
+        }, 500); // Esperar 500 milissegundos (0.5 segundos) para garantir que a animação termine
+    }
+
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const email = form.email.value;
         const password = form.password.value;
         try {
-            const url = "/home";
+            const url = "/";
             const response = await fetch('/customer/account/login', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
@@ -75,7 +104,8 @@
             const data = await response.json();
             const valueData_msg = "msg" in data ? data.msg : data.error;
             // console.log(data);
-            updateDataServerMSG(data)
+            showNotificationCallback(updateDataServerMSG(data));
+
             if(response.ok){ // ok
                 window.location = url;
             }
@@ -85,4 +115,3 @@
 })
 </script>
 </body>
-</html>

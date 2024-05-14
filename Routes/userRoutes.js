@@ -11,10 +11,9 @@ const { intro } = require('../controllers/introduction.js');
 
 
 
-Router.get('/home', homeGet);
+Router.get('/', homeGet);
 Router.get('/intro', intro);
 
 Router.post('/refreshToken', authenticate, refreshToken);
-
 
 module.exports = Router

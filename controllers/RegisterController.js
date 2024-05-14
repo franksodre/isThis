@@ -40,7 +40,10 @@ exports.register = async (request, response) => {
 }
 
 exports.GET_register = async (request, response) => {
-    response.render('register');
+    const locals = {
+        title: "InsidePC | Register"
+    }
+    response.render('register', { locals }); // validation error register;
 }
 
 

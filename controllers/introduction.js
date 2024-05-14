@@ -1,3 +1,6 @@
 exports.intro = async(request, response) => {
-	response.render("intro");
+	const locals = {
+		title: "introduction"
+	}
+	response.render("intro", locals);
 }

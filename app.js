@@ -20,7 +20,7 @@ dotenv.config();
 // app.engine('html', require('ejs').renderFile);
 // app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(ExpressLayouts);
-app.set('layout', 'layouts/main');
+app.set('layout', './layouts/main');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname,'public')));
 // app.use(express.static('public'));
@@ -40,3 +40,5 @@ app.use('/customer/account', Accounts);
 app.listen(5000,() => {
     console.log(`listen in port 5000`); // o server deve apenas rodar se o banco rodar!
 })
+
+/*curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh*/
