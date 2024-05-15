@@ -1,4 +1,4 @@
-const jwt = require('jsonwebToken')
+const jwt = require('jsonwebtoken')
 const nodeMailer = require('nodemailer')
 const { compare } = require('bcryptjs');
 const env = require('dotenv')
@@ -15,23 +15,23 @@ exports.login = async (request,response) => {
 
     const user = await User.findOne({ email });
     if(!user){
-        return response.status(404).json({ msg: "email or password incorrect" }); // alterar a msg
+        return response.status(404).json({ error: "email or password incorrect" }); // alterar a error
     }
 
     try{
         const comparePassword = await compare(password, user.password); // os metodos de bcryptjs não retornam throws.
         if(!email || !password){
-            return response.status(400).json({msg: "password or email incorrect"})
+            return response.status(400).json({error: "email or password incorrect"})
         }  // tudo isso poderia estar dentro do try.
         if (!comparePassword) {
             throw new ServerValidationError({
-                message: "email or password are incorrect",
+                message: "email or password incorrect",
                 statusCode: 403
             })
         }
     }catch(e){
         if(e instanceof ServerValidationError){
-            return response.status(e.statusCode).json({msg: e.message})
+            return response.status(e.statusCode).json({error: e.message})
         }
     }
 
@@ -46,10 +46,10 @@ exports.login = async (request,response) => {
         request.UserSaved = UserSaved;
 
         createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token });
-        response.status(200).json({ User: UserSaved._id })
+        response.status(200).json({ msg: "usuario logado com sucesso" }) // { User: UserSaved._id }
     } catch (e) {
         console.log(e);
-        response.status(401).json({ msg: 'token invalido' });
+        response.status(401).json({ error: 'token invalido' });
     }
 }
 

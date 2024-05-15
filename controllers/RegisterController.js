@@ -31,7 +31,7 @@ exports.register = async (request, response) => {
         response.cookie('refreshToken', refreshToken, cookieOptions_token)
         // .header('Authorization', accessToken)
         createCookie({ response: response, name: 'Authorization', value: accessToken, options: cookieOptions_token })
-        .status(201).json({ User: UserSaved._id })
+        .status(201).json({ msg: "usuario logado com sucesso" }) // { User: UserSaved._id }
         // deve ser trabalhada
     } catch (e) {
         console.error(e);
