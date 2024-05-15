@@ -9,7 +9,7 @@ const { cookieOptions_token, cookieOptions_state } = require('../utils/cookieOpt
 exports.register = async (request, response) => {
     const { name, email, password } = request.body;
 
-    const CheckUserExists = await User.exists({ email });
+    const CheckUserExists = await User.findOne({ email });
     if (CheckUserExists){
         return response.status(400).json({ msg: `user \`${email}\` is already taken` });
     }
